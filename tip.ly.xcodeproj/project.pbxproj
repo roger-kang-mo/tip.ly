@@ -12,6 +12,7 @@
 		2D015B851C0832BD00558CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D015B831C0832BD00558CB7 /* Main.storyboard */; };
 		2D015B871C0832BD00558CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D015B861C0832BD00558CB7 /* Assets.xcassets */; };
 		2D015B8A1C0832BD00558CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D015B881C0832BD00558CB7 /* LaunchScreen.storyboard */; };
+		2D015B941C090A5000558CB7 /* totalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D015B931C090A5000558CB7 /* totalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2D015B861C0832BD00558CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D015B891C0832BD00558CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D015B8B1C0832BD00558CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D015B931C090A5000558CB7 /* totalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = totalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				2D015B7F1C0832BD00558CB7 /* AppDelegate.swift */,
 				2D015B811C0832BD00558CB7 /* ViewController.swift */,
 				2D015B831C0832BD00558CB7 /* Main.storyboard */,
+				2D015B931C090A5000558CB7 /* totalViewController.swift */,
 				2D015B861C0832BD00558CB7 /* Assets.xcassets */,
 				2D015B881C0832BD00558CB7 /* LaunchScreen.storyboard */,
 				2D015B8B1C0832BD00558CB7 /* Info.plist */,
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					2D015B7B1C0832BD00558CB7 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = FJET336YJG;
 					};
 				};
 			};
@@ -137,6 +141,7 @@
 			files = (
 				2D015B821C0832BD00558CB7 /* ViewController.swift in Sources */,
 				2D015B801C0832BD00558CB7 /* AppDelegate.swift in Sources */,
+				2D015B941C090A5000558CB7 /* totalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +252,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = tip.ly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manservant.tip-ly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -258,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = tip.ly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manservant.tip-ly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -284,6 +295,7 @@
 				2D015B901C0832BD00558CB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
