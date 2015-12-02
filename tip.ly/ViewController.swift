@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     
 
     @IBOutlet weak var billField: UITextField!
-    
     @IBOutlet weak var dollarLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
 
     @IBAction func onFinishedEditing(sender: AnyObject) {
         view.endEditing(true)
@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
         billField.becomeFirstResponder()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -38,9 +37,12 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextView = (segue.destinationViewController as! TotalViewController)
+
+        if segue.identifier == "TotalViewSegue" {
+            let nextView = (segue.destinationViewController as! TotalViewController)
         
-        nextView.billAmt = billField.text
+            nextView.billAmt = billField.text
+        }
     }
 }
 

@@ -20,6 +20,8 @@ class TotalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        billField.becomeFirstResponder()
         billField.text = billAmt
         recalculate(billField)
     }
