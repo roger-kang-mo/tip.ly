@@ -10,14 +10,10 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    let defaultTipVariances = [0.03, 0.05, 0.08]
     let userPreferences = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var defaultTipField: UITextField!
-    @IBOutlet weak var verboseRatingSwitch: UISwitch!
-
-//    func setPreference(value: String, key: String){
-//        userPreferences.setObject(value, forKey: key)
-//        userPreferences.synchronize()
-//    }
+    @IBOutlet weak var tipVarianceSegment: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +22,22 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
+
         if let defaultPercentage = userPreferences.objectForKey("defaultPercentage") {
             defaultTipField.text = (defaultPercentage as! String)
+        } else {
+            userPreferences.setObject("20", forKey: "defaultPercentage")
+            userPreferences.synchronize()
         }
-        let useVerboseRatings = userPreferences.boolForKey("verboseRatings")
-        if userPreferences.objectForKey("verboseRatings") != nil {
-            verboseRatingSwitch.setOn(useVerboseRatings, animated: true)
+
+        if let defaultVariance = userPreferences.objectForKey("defaultVariance") {
+            let varianceAsDouble = (defaultVariance as! NSString).doubleValue
+            tipVarianceSegment.selectedSegmentIndex = defaultTipVariances.indexOf(varianceAsDouble)!
+        } else {
+            tipVarianceSegment.selectedSegmentIndex = 1
+            userPreferences.setObject("0.05", forKey: "defaultVariance")
+            userPreferences.synchronize()
         }
     }
 
@@ -51,13 +57,19 @@ class SettingsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 2
     }
-    @IBAction func onVerboseChange(sender: AnyObject){
-        userPreferences.setBool(verboseRatingSwitch.on, forKey: "verboseRatings")
+
+    @IBAction func onVarianceChange(sender: AnyObject) {
+        let selectedVariance = defaultTipVariances[tipVarianceSegment.selectedSegmentIndex]
+        userPreferences.setObject(String(format:"%f", selectedVariance), forKey: "defaultVariance")
         userPreferences.synchronize()
     }
-
     @IBAction func onDefaultPercentageChange(sender: AnyObject) {
-        userPreferences.setObject(defaultTipField.text!, forKey: "defaultPercentage")
-        userPreferences.synchronize()
+        let percentage = (defaultTipField.text! as NSString).doubleValue
+
+        if !percentage.isNaN && percentage >= 0 {
+            userPreferences.setObject(String(format:"%.0f", percentage), forKey: "defaultPercentage")
+            userPreferences.synchronize()
+        }
+
     }
 }

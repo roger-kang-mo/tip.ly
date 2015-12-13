@@ -25,7 +25,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vH-UU-ATe">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vH-UU-ATe">
                                                     <rect key="frame" x="192" y="6" width="120" height="30"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -34,16 +34,18 @@
                                                         <action selector="onDefaultPercentageChange:" destination="ACr-tZ-Vuo" eventType="editingChanged" id="jC5-5H-UDF"/>
                                                     </connections>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Default Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZl-cU-OGJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZl-cU-OGJ">
                                                     <rect key="frame" x="8" y="10" width="176" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstItem="jZl-cU-OGJ" firstAttribute="centerY" secondItem="1m0-Ze-9YQ" secondAttribute="centerY" id="4sO-HZ-xXD"/>
+                                                <constraint firstItem="0vH-UU-ATe" firstAttribute="centerY" secondItem="1m0-Ze-9YQ" secondAttribute="centerY" id="W7q-dO-XSl"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="jZl-cU-OGJ" secondAttribute="leading" id="i0F-MS-fBy"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0vH-UU-ATe" secondAttribute="trailing" id="k0D-k7-yxe"/>
                                             </constraints>
@@ -57,25 +59,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Verbose Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUq-5T-xPT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip Variance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUq-5T-xPT">
                                                     <rect key="frame" x="8" y="11" width="125" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PcS-HK-NZe">
-                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="yl1-QF-VgQ">
+                                                    <rect key="frame" x="141" y="8" width="171" height="29"/>
                                                     <animations/>
+                                                    <segments>
+                                                        <segment title="3%"/>
+                                                        <segment title="5%"/>
+                                                        <segment title="8%"/>
+                                                    </segments>
                                                     <connections>
-                                                        <action selector="onVerboseChange:" destination="ACr-tZ-Vuo" eventType="valueChanged" id="LrQ-Kt-tZL"/>
+                                                        <action selector="onVarianceChange:" destination="ACr-tZ-Vuo" eventType="valueChanged" id="WoE-Y2-4eS"/>
                                                     </connections>
-                                                </switch>
+                                                </segmentedControl>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PcS-HK-NZe" secondAttribute="trailing" id="6hp-An-Stb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yl1-QF-VgQ" secondAttribute="trailing" id="1XD-mk-dVr"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="YUq-5T-xPT" secondAttribute="leading" id="Py2-Eb-MSZ"/>
+                                                <constraint firstItem="yl1-QF-VgQ" firstAttribute="centerY" secondItem="QHK-9R-2gE" secondAttribute="centerY" id="mI3-Q1-cra"/>
+                                                <constraint firstItem="YUq-5T-xPT" firstAttribute="centerY" secondItem="QHK-9R-2gE" secondAttribute="centerY" id="pT1-dc-0Z5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -99,7 +108,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="defaultTipField" destination="0vH-UU-ATe" id="UEx-pj-AX7"/>
-                        <outlet property="verboseRatingSwitch" destination="PcS-HK-NZe" id="RED-Rg-yfp"/>
+                        <outlet property="tipVarianceSegment" destination="yl1-QF-VgQ" id="Qrt-X4-WCX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wnh-77-DgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -114,12 +123,12 @@
                         <viewControllerLayoutGuide type="top" id="n6t-sC-I5s"/>
                         <viewControllerLayoutGuide type="bottom" id="fRb-gh-DSv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4za-Xo-gbZ">
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="4za-Xo-gbZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrP-iw-Rli">
-                                <rect key="frame" x="20" y="79" width="280" height="185"/>
+                                <rect key="frame" x="16" y="79" width="280" height="185"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="155"/>
                                 <color key="textColor" red="0.24929260219999999" green="0.27290597700000002" blue="0.29450261779999998" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
@@ -132,16 +141,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-Wl-NvO">
-                                <rect key="frame" x="112" y="395" width="188" height="30"/>
-                                <animations/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="rdJ-8A-eHy"/>
-                                </connections>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="hai-fI-ocE">
                                 <rect key="frame" x="20" y="309" width="280" height="29"/>
                                 <animations/>
@@ -156,7 +155,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ok" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cY8-ty-APg">
-                                <rect key="frame" x="20" y="431" width="280" height="90"/>
+                                <rect key="frame" x="16" y="431" width="280" height="90"/>
                                 <animations/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="75"/>
@@ -166,7 +165,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-kO-0Or">
-                                <rect key="frame" x="20" y="74" width="280" height="195"/>
+                                <rect key="frame" x="16" y="75" width="280" height="195"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="FFv-3x-NBx"/>
@@ -175,7 +174,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="URr-dc-C1P"/>
+                                    <action selector="onBillEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="Cg4-0c-HNb"/>
+                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="7w5-ae-EzM"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-Wl-NvO">
+                                <rect key="frame" x="112" y="395" width="188" height="30"/>
+                                <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="rdJ-8A-eHy"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -184,16 +194,17 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="hai-fI-ocE" firstAttribute="centerX" secondItem="4za-Xo-gbZ" secondAttribute="centerX" id="74t-pn-uUP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cY8-ty-APg" secondAttribute="trailing" id="D3C-aa-Fp9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Xf-kO-0Or" secondAttribute="trailing" id="GHW-8Z-tmf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cY8-ty-APg" secondAttribute="trailing" constant="4" id="D3C-aa-Fp9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Xf-kO-0Or" secondAttribute="trailing" constant="4" id="GHW-8Z-tmf"/>
                             <constraint firstItem="MtN-Wl-NvO" firstAttribute="top" secondItem="hai-fI-ocE" secondAttribute="bottom" constant="58" id="RLV-nL-0RH"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="cY8-ty-APg" secondAttribute="leading" id="WdF-iI-VyS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yrP-iw-Rli" secondAttribute="trailing" id="X60-21-L04"/>
-                            <constraint firstItem="fRb-gh-DSv" firstAttribute="top" secondItem="cY8-ty-APg" secondAttribute="bottom" constant="47" id="Xog-cc-G4k"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="cY8-ty-APg" secondAttribute="leading" constant="4" id="WdF-iI-VyS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yrP-iw-Rli" secondAttribute="trailing" constant="4" id="X60-21-L04"/>
+                            <constraint firstItem="fRb-gh-DSv" firstAttribute="top" secondItem="cY8-ty-APg" secondAttribute="bottom" constant="3" id="Xog-cc-G4k"/>
                             <constraint firstItem="hF1-Ag-fmN" firstAttribute="top" secondItem="hai-fI-ocE" secondAttribute="bottom" constant="49" id="eUt-lp-ZAy"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1Xf-kO-0Or" secondAttribute="leading" id="se8-qm-Ohr"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="yrP-iw-Rli" secondAttribute="leading" id="tDl-ws-qA1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="1Xf-kO-0Or" secondAttribute="leading" constant="4" id="se8-qm-Ohr"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yrP-iw-Rli" secondAttribute="leading" constant="4" id="tDl-ws-qA1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MtN-Wl-NvO" secondAttribute="trailing" id="xfp-g5-Jyi"/>
+                            <constraint firstItem="hai-fI-ocE" firstAttribute="top" secondItem="1Xf-kO-0Or" secondAttribute="bottom" constant="40" id="yRH-jI-AHu"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="J3a-dj-hPI" appends="YES" id="Ke3-3C-kQM"/>
@@ -212,6 +223,7 @@
                         <outlet property="billField" destination="1Xf-kO-0Or" id="mjC-Ct-P9l"/>
                         <outlet property="dollarLabel" destination="yrP-iw-Rli" id="OL2-IB-hs5"/>
                         <outlet property="tipField" destination="MtN-Wl-NvO" id="2rS-yC-kNe"/>
+                        <outlet property="tipLabel" destination="hF1-Ag-fmN" id="3hN-ZK-pgb"/>
                         <outlet property="tipSegment" destination="hai-fI-ocE" id="7Ub-aP-Eqb"/>
                         <outlet property="totalField" destination="cY8-ty-APg" id="U0L-Hf-KjN"/>
                     </connections>
