@@ -164,8 +164,18 @@
                                     <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="kaw-yv-bAc"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-Wl-NvO">
+                                <rect key="frame" x="112" y="395" width="188" height="30"/>
+                                <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="rdJ-8A-eHy"/>
+                                </connections>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-kO-0Or">
-                                <rect key="frame" x="16" y="75" width="280" height="195"/>
+                                <rect key="frame" x="16" y="74" width="284" height="195"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="FFv-3x-NBx"/>
@@ -178,16 +188,6 @@
                                     <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="7w5-ae-EzM"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-Wl-NvO">
-                                <rect key="frame" x="112" y="395" width="188" height="30"/>
-                                <animations/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="onEditingChanged:" destination="Q4w-sM-ECu" eventType="editingChanged" id="rdJ-8A-eHy"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.8784313725490196" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,13 +195,12 @@
                         <constraints>
                             <constraint firstItem="hai-fI-ocE" firstAttribute="centerX" secondItem="4za-Xo-gbZ" secondAttribute="centerX" id="74t-pn-uUP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cY8-ty-APg" secondAttribute="trailing" constant="4" id="D3C-aa-Fp9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Xf-kO-0Or" secondAttribute="trailing" constant="4" id="GHW-8Z-tmf"/>
+                            <constraint firstItem="1Xf-kO-0Or" firstAttribute="centerX" secondItem="4za-Xo-gbZ" secondAttribute="centerX" id="OG1-g6-3yn"/>
                             <constraint firstItem="MtN-Wl-NvO" firstAttribute="top" secondItem="hai-fI-ocE" secondAttribute="bottom" constant="58" id="RLV-nL-0RH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cY8-ty-APg" secondAttribute="leading" constant="4" id="WdF-iI-VyS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yrP-iw-Rli" secondAttribute="trailing" constant="4" id="X60-21-L04"/>
                             <constraint firstItem="fRb-gh-DSv" firstAttribute="top" secondItem="cY8-ty-APg" secondAttribute="bottom" constant="3" id="Xog-cc-G4k"/>
                             <constraint firstItem="hF1-Ag-fmN" firstAttribute="top" secondItem="hai-fI-ocE" secondAttribute="bottom" constant="49" id="eUt-lp-ZAy"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1Xf-kO-0Or" secondAttribute="leading" constant="4" id="se8-qm-Ohr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yrP-iw-Rli" secondAttribute="leading" constant="4" id="tDl-ws-qA1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MtN-Wl-NvO" secondAttribute="trailing" id="xfp-g5-Jyi"/>
                             <constraint firstItem="hai-fI-ocE" firstAttribute="top" secondItem="1Xf-kO-0Or" secondAttribute="bottom" constant="40" id="yRH-jI-AHu"/>

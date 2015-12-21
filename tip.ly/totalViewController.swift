@@ -16,6 +16,7 @@ class TotalViewController: UIViewController {
     var defaultTipPercentage:Double!
     var billAmt:String!
     var tipVariance:Double!
+    let dateFormatter = NSDateFormatter()
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipField: UITextField!
     @IBOutlet weak var totalField: UITextField!
@@ -24,6 +25,9 @@ class TotalViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
 
     override func viewDidLoad() {
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .ShortStyle
+
         super.viewDidLoad()
         hideBottomFields()
         setUpTipSegments()
@@ -31,12 +35,15 @@ class TotalViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
 
         billField.becomeFirstResponder()
+        getPersistedBill()
         billField.text = billAmt
+        if(billAmt != nil) { showBottomFields() }
         recalculate(billField)
     }
 
     @IBAction func onBillEditingChanged(sender: AnyObject) {
         showBottomFields()
+        persistBill()
     }
 
     @IBAction func onEditingEnded(sender: AnyObject) {
@@ -74,8 +81,27 @@ class TotalViewController: UIViewController {
         })
     }
 
+    func persistBill(){
+        let currentTime = dateFormatter.stringFromDate(NSDate())
+        let billAndTime: [String: String] = ["amount": billField.text!, "time": currentTime]
+        userPreferences.setObject(billAndTime, forKey: "billField")
+        userPreferences.synchronize()
+    }
+
+    func getPersistedBill(){
+        let billAndTime = userPreferences.objectForKey("billField")
+        let bill = billAndTime!["amount"] as! String
+        let currentTime = NSDate()
+        let date = dateFormatter.dateFromString(time = billAndTime!["time"] as! String)
+
+        if(date != nil){
+            let interval = currentTime.timeIntervalSinceDate(date!)
+            if(interval < 600){ billAmt = bill } // 10 minutes
+        }
+    }
+
     func setUpTipSegments() {
-        if let tipPref = NSUserDefaults.standardUserDefaults().objectForKey("defaultPercentage") {
+        if let tipPref = userPreferences.objectForKey("defaultPercentage") {
             defaultTipPercentage = (tipPref as! NSString).doubleValue
         } else {
             defaultTipPercentage = 20
@@ -134,4 +160,6 @@ class TotalViewController: UIViewController {
                 tipField.text = String(format: "%.2f", tipAmt)
         }
     }
+
+    
 }
