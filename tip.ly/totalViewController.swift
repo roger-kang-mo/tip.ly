@@ -92,7 +92,7 @@ class TotalViewController: UIViewController {
         let billAndTime = userPreferences.objectForKey("billField")
         let bill = billAndTime!["amount"] as! String
         let currentTime = NSDate()
-        let date = dateFormatter.dateFromString(time = billAndTime!["time"] as! String)
+        let date = dateFormatter.dateFromString(billAndTime!["time"] as! String)
 
         if(date != nil){
             let interval = currentTime.timeIntervalSinceDate(date!)
