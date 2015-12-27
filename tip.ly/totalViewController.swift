@@ -18,6 +18,7 @@ class TotalViewController: UIViewController {
     var tipVariance:Double!
     let dateFormatter = NSDateFormatter()
     let numberFormatter = NSNumberFormatter()
+    let locale = NSLocale.currentLocale()
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipField: UITextField!
     @IBOutlet weak var totalField: UITextField!
@@ -26,12 +27,7 @@ class TotalViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
 
     override func viewDidLoad() {
-        dateFormatter.dateStyle = .ShortStyle
-        dateFormatter.timeStyle = .ShortStyle
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.minimumFractionDigits = 2
+        initFormatters()
 
         super.viewDidLoad()
         hideBottomFields()
@@ -41,7 +37,7 @@ class TotalViewController: UIViewController {
 
         billField.becomeFirstResponder()
         getPersistedBill()
-        billField.text = billAmt
+        setFieldText(billField, value: billAmt as! Double)
         if(billAmt != nil) { showBottomFields() }
         recalculate(billField)
     }
@@ -170,5 +166,14 @@ class TotalViewController: UIViewController {
 
     func setFieldText(dest: UITextField, value: Double){
         dest.text = numberFormatter.stringFromNumber(value)
+    }
+
+    func initFormatters(){
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .ShortStyle
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 2
     }
 }
