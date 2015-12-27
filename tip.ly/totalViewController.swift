@@ -17,6 +17,7 @@ class TotalViewController: UIViewController {
     var billAmt:String!
     var tipVariance:Double!
     let dateFormatter = NSDateFormatter()
+    let numberFormatter = NSNumberFormatter()
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipField: UITextField!
     @IBOutlet weak var totalField: UITextField!
@@ -27,6 +28,10 @@ class TotalViewController: UIViewController {
     override func viewDidLoad() {
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .ShortStyle
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 2
 
         super.viewDidLoad()
         hideBottomFields()
@@ -141,25 +146,29 @@ class TotalViewController: UIViewController {
         let billAmount = (billField.text! as NSString).doubleValue
         var tipAmt = billAmount * tipPercentages[tipSegment.selectedSegmentIndex]
         var totalAmt = (totalField.text! as NSString).doubleValue
-        
+
+
+        // Switch Statements: An Ultimate Evil
         switch origin {
             case billField:
                 totalAmt = tipAmt + billAmount
-                totalField.text = String(format: "%.2f", totalAmt)
-                tipField.text = String(format: "%.2f", tipAmt)
+                setFieldText(totalField, value: totalAmt)
+                setFieldText(tipField, value: tipAmt)
             case tipField:
                 tipAmt = (tipField.text! as NSString).doubleValue
                 totalAmt = tipAmt + billAmount
-                totalField.text = String(format: "%.2f", totalAmt)
+                setFieldText(totalField, value: totalAmt)
             case tipSegment:
-                tipField.text = String(format: "%.2f", tipAmt)
+                setFieldText(tipField, value: tipAmt)
                 totalAmt = tipAmt + billAmount
-                totalField.text = String(format: "%.2f", totalAmt)
+                setFieldText(totalField, value: totalAmt)
             default: // Edited totalField
                 tipAmt = totalAmt - billAmount
-                tipField.text = String(format: "%.2f", tipAmt)
+                setFieldText(tipField, value: tipAmt)
         }
     }
 
-    
+    func setFieldText(dest: UITextField, value: Double){
+        dest.text = numberFormatter.stringFromNumber(value)
+    }
 }
