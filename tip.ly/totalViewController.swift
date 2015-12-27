@@ -37,8 +37,10 @@ class TotalViewController: UIViewController {
 
         billField.becomeFirstResponder()
         getPersistedBill()
-        setFieldText(billField, value: billAmt as! Double)
-        if(billAmt != nil) { showBottomFields() }
+        if(billAmt != nil) {
+            billField.text = billAmt
+            showBottomFields()
+        }
         recalculate(billField)
     }
 
@@ -171,9 +173,16 @@ class TotalViewController: UIViewController {
     func initFormatters(){
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .ShortStyle
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.numberStyle = .DecimalStyle
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.minimumFractionDigits = 2
+
+        if(locale.localeIdentifier == "en_US"){
+            numberFormatter.groupingSeparator = ","
+            numberFormatter.decimalSeparator = "."
+        }else{
+            numberFormatter.groupingSeparator = "."
+            numberFormatter.decimalSeparator = ","
+        }
     }
 }

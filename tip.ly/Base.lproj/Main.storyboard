@@ -175,7 +175,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-kO-0Or">
-                                <rect key="frame" x="16" y="74" width="284" height="195"/>
+                                <rect key="frame" x="32" y="74" width="253" height="195"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="FFv-3x-NBx"/>
